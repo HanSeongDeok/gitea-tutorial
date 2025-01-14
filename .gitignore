@@ -67,7 +67,7 @@ build-harness
 
 *.envrc
 *.log
-#*.pem
+*.pem
 *.retry
 
 *.retry
@@ -78,3 +78,5 @@ build-harness
 .direnv
 
 **/temp
+.codegpt
+
