@@ -6,7 +6,7 @@ services:
       - USER_UID=1000
       - USER_GID=1000
     volumes:
-      - "data:/data"
+      - "./data:/data"
       - "./app.ini:/data/gitea/conf/app.ini"
       - "./certs:/data/certs"
       # - "/etc/timezone:/etc/timezone:ro"
