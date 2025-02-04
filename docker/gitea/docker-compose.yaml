@@ -1,6 +1,9 @@
 services:
   gitea:
-    image: gitea/gitea:1.21.10
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #image: gitea/gitea:1.21.10
     container_name: gitea
     environment:
       - USER_UID=1000
@@ -14,4 +17,10 @@ services:
     ports:
       - "3300:3300"
       - "222:22"
+    networks:
+      - gitea_network  
     restart: unless-stopped
+
+networks:
+  gitea_network:  # 네트워크로 정의
+      driver: bridge  
