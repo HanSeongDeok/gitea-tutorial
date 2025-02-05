@@ -8,12 +8,13 @@ services:
       GITEA_INSTANCE_URL: "https://10.10.110.52:3300" 
       GITEA_RUNNER_REGISTRATION_TOKEN: "wmJgNntP0CH0TmLSo4PkclF0TeHcgVyCG2wHxTXK"
       GITEA_RUNNER_NAME: "act_runner"
+      DOCKER_HOST: "tcp://10.10.110.52:2375"  # Docker API를 통한 접근
       #GITEA_RUNNER_LABELS: ubuntu-latest:docker
     volumes:
       - ./act-runner/data:/data
       - ./act-runner/cache:/root/.cache
       - ./config.yaml:/config.yaml
-      - ./var/run/docker.sock:/var/run/docker.sock
+      # - ./var/run/docker.sock:/var/run/docker.sock 선생님 께서는 Vagrant(Linux 환경)를 통해 도커를 실행하기 때문에.. 필자는 로컬에서 수행하기에 필요 없음.
     networks:
       - gitea_network
     restart: unless-stopped
