@@ -26,3 +26,13 @@ update-ca-certificates
 
 ## Window 인증서 자체 인증 하는 방법
 - 만들어진 .crt 파일을 준비한다.
+
+## 도커 내에 Docker Daemon이 외부에서 오는 Docker API 요청을 수락하도록 하는 json 작성
+```
+{
+  "hosts": [
+    "tcp://0.0.0.0:2375",          # 외부 연결을 위한 TCP 포트 (모든 IP에서 연결 허용)
+    "unix:///var/run/docker.sock"  # 로컬 소켓 연결 (Linux에서 docker의 소켓 통신을 위한 파일)
+  ]
+}
+```
